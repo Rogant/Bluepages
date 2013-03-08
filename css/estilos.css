@@ -1,4 +1,39 @@
 .ui-bar-a{
 	background: url('../images/header-bg.jpg') center center repeat-x;
-	height: 101px;
+	height: 67px;
+}
+
+#logo{
+	background: url('../images/logo.png') no-repeat;
+	width: 113px;
+	height: 132px;
+	margin: 0 auto;
+}
+
+.ui-content{
+	background: url('../images/main-bg.jpg') no-repeat center;
+	background-size: cover;
+	padding: 0;
+}
+
+#main{
+	margin-top: 100px;
+}
+
+#formCont{
+	text-align: center;
+}
+
+.alert{
+	background: url('../images/alertaBg.jpg') repeat-x, url('../images/alertaRow.png') center 30px no-repeat;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 14px;
+    height: 25px;
+    padding: 5px 10px;
+}
+
+.ui-footer{
+	background: url('../images/footerBg.jpg') center center repeat-x;
+	height: 76px;	
 }
