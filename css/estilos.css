@@ -53,6 +53,58 @@ body{
 	height: 76px;	
 }
 
-.ui-input-text{
+.ui-input-text, input.ui-input-text, textarea.ui-input-text{
+	color: #0063bb;
 	border-radius: 0;
+	font-size: 13px;
+}
+
+.options{
+	text-align: right;
+	font-size: 10px;
+}
+
+.ui-checkbox{
+	margin: 0 !important;
+}
+
+.ui-checkbox input{
+	left: 135px;
+	margin-top: 3px;
+}
+
+.rememberMe{
+	color: #01446b !important;
+	text-decoration: none;
+	margin-top: 15px;
+}
+
+.ui-submit{
+	margin-top: 15px;
+}
+
+.ui-btn-inner{
+	font-size: 13px;
+}
+
+.ui-footer .ui-title{
+	font-size: 11px;
+}
+
+.ui-footer .ui-btn-text{
+	margin: 0 auto;
+}
+
+.singup{
+	width: 150px;
+	margin: 0 auto;
+}
+
+.singup a{
+	border: none;
+	margin-top: 19px;
+}
+
+.singup .ui-btn-inner{
+	font-size: 11px;
 }
