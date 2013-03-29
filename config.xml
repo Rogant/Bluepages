@@ -17,4 +17,14 @@
         Andres Vargass 
     </author>
 
+    <icon src="icons/icon.png" gap:platform="ios" width="57" height="57" />
+    <icon src="icons/icon-72.png" gap:platform="ios" width="72" height="72" />
+    <icon src="icons/icon_at_2x.png" gap:platform="ios" width="114" height="114" />
+
+    <gap:splash src="splash/Default.png" width="320" height="480" />
+    <gap:splash src="splash/Default_at_2x.png" width="640" height="960" />
+    <gap:splash src="splash/Default_iphone5.png" width="640" height="1136" />
+    <gap:splash src="splash/Default-Landscape.png" width="1024" height="768" />
+    <gap:splash src="splash/Default-Portrait.png" width="768" height="1024" />
+
 </widget>

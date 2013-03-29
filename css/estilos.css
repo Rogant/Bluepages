@@ -50,7 +50,7 @@ body{
 
 .ui-footer{
 	background: url('../images/footerBg.jpg') center center repeat-x;
-	height: 76px;	
+	height: 75px;	
 }
 
 .ui-input-text, input.ui-input-text, textarea.ui-input-text{
