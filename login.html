@@ -37,16 +37,25 @@ $(document).ready(function() {
         </div>
         <div data-role="content" id="content">
             <div id="main">
-                <div id="intro">
-                    <p class="space">The most complete health directory</p>
-                    <a class="space" href="login.html" data-role="button" data-theme="b">MEMBERS LOGIN</a>
-                    <a href="searchGuest.html" data-role="button" data-theme="b">VISITOR SEARCH</a>
+                <div id="formCont">
+                    <div class="alert">
+                        MEMBERS AREA
+                    </div>
+
+                    <input type="text" placeholder="E-mail">
+                    <input type="text" placeholder="Password">
+                    <div class="options">
+                        <a href="#">Forgot your password?</a>
+                        <input type="checkbox"><a href="#" class="rememberMe">Remember me</a>
+
+                        <input type="submit" value="Login" data-theme="a">
+                    </div>
                 </div>
             </div>
         </div>
         <div data-theme="a" data-role="footer" data-position="fixed">
             <h3>
-                Be part of BluePages MD’s directory
+                Don’t have an account?
             </h3>
             <div class="singup">
                 <a href="#" data-role="button" data-theme="a">Sing up now!</a>

@@ -2,6 +2,18 @@ body{
 	color: #0063bb;
 }
 
+p{
+	color: #104066;
+	font-size: 12px;
+	text-align: center;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
 .ui-bar-a{
 	background: url('../images/header-bg.jpg') center center repeat-x;
 	height: 67px;
@@ -107,4 +119,218 @@ body{
 
 .singup .ui-btn-inner{
 	font-size: 11px;
+}
+
+#intro{
+	width: 200px;
+	margin: -20px auto;
+}
+
+.space{
+	margin-bottom: 45px;
+}
+
+#logoInt{
+	background: url('../images/logoInt.png');
+	width: 147px;
+	height: 64px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#search{
+	background: url('../images/searchBg.jpg') repeat-x;
+	height: 77px;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 20px;
+}
+
+#search .ui-input-text{
+
+	border-radius: 12px;
+}
+
+#search input{
+	background: url('../images/icoSearch.png') no-repeat right -1px;
+	font-size: 10px;
+}
+
+#search ::-webkit-input-placeholder{
+	color: #707070;
+	font-weight: bold;
+}
+
+#search a{
+	font-style: italic;
+	width: 135px;
+	float: right;
+}
+
+#search span{
+	padding: 3px;
+}
+
+#choosecat p{
+	background: url('../images/chooseBg.jpg') repeat-x;
+	height: 38px;
+	margin: 0;
+	color: #1983cf;
+	font-size: 14px;
+	font-weight: bold;
+	padding-top: 15px;
+}
+
+#choosecat .ui-btn{
+	height: 50px;
+	margin: 0;
+	box-shadow: 0 !important;
+	border-radius: 0;
+	border-top: 0;
+	border-bottom: 1px solid #ccc;
+}
+
+#choosecat .ui-btn-inner{
+	border: 0;
+	width: 234px;
+	margin: 0 auto;
+	padding: 15px;
+	font-size: 17px;
+}
+
+#choosecat .ui-btn-text{
+	width: 125px;
+	margin: 0 auto;
+	display: block;
+	text-align: left;
+}
+
+#choosecat .s1 .ui-btn-inner{
+	background: url('../images/icoMedical.png') no-repeat 16px center;
+
+}
+
+#choosecat .s2 .ui-btn-inner{
+	background: url('../images/hospitalIco.png') no-repeat 9px center;
+
+}
+
+#choosecat .s3 .ui-btn-inner{
+	background: url('../images/supplierIco.png') no-repeat 16px center;
+
+}
+
+#choosecat .s4 .ui-btn-inner{
+	background: url('../images/pharmacyIco.png') no-repeat 14px center;
+
+}
+
+#choosecat .s5 .ui-btn-inner{
+	background: url('../images/residentIco.png') no-repeat 16px center;
+
+}
+
+.ui-footer.ui-bar-d{
+	height: 63px;
+}
+
+.ui-footer.ui-bar-d ul{
+	width: 320px;
+	margin: 0 auto;
+}
+
+.ui-footer.ui-bar-d li{
+	float: left;
+}
+
+#tableList{
+	position: relative;
+}
+
+pre.prettyprint{
+	padding: 10px;
+	font-family: monospace;
+	font-size: 9pt;
+	background: #f8f8f8;
+	border: 1px solid #e4e4e4;
+}
+
+#especialidades{
+	border: 1px solid #2683BD;
+	height: 350px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	font-family: sans-serif;
+	font-size: 1em;
+}
+#especialidades dt{
+	margin: 0;
+	background: #2683BD url(http://www.teamdf.com/jquery-plugins/resources/images/overlay-sprite.png) repeat-x 0 -50px;
+	font-weight: bold;
+	text-shadow: -1px -1px 0px rgba( 0, 0, 0, 0.2 ), 1px 1px 0px rgba( 255, 255, 255, 0.3 );
+	color: white;
+	padding: 8px 5px;
+	border-bottom: 1px solid #1D6FA2;
+}
+#especialidades dd{
+	padding: 5px;
+	margin: 0;
+	border-bottom: 1px solid #F2F6FB;
+	font-size: 0.8em;
+	color: #2A5673;
+}
+#buttons{
+	position: absolute;
+	right: 8px;
+	top: -45px;
+	z-index: 99;
+	background: #fff;
+	padding: 3px;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+}
+
+#buttons a{
+	padding: 3px 8px;
+	font-size: 9px;
+	line-height: 6px;
+	text-align: center;
+	color: #888;
+	font-weight: bold;
+	display: block;
+	text-transform: uppercase;
+	cursor: pointer;
+	text-decoration: none;
+}
+button:hover{
+	color: white;
+	background-color: #1D6FA2;
+}
+#buttons {
+	margin: 0 0 5px 0;
+}
+#buttons button{
+	float: none;
+	margin: 0 5px 0 0;
+	border-color: #2683BD;
+}
+#buttons button.inactive{
+	background-color: #999;
+	border-color: #999;
+}
+
+.ui-list dd{
+	background: #fff;
+	padding: 9px !important;
+	border-bottom: 1px solid #ddd;
+}
+
+.ui-list dd a{
+	color: #095681;
+	font-size: 14px;
+	text-decoration: none;
+	font-weight: bold;
 }
