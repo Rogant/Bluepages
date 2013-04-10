@@ -16,63 +16,70 @@
 
 
 <script type="text/javascript">
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap esta listo y ahora ya se pueden hacer llamadas a PhoneGap
+    //
+    function onDeviceReady() {
+
+        alert('onDeviceReady');
+        var marco = $(".ui-header").height() + $(".ui-footer").height();
+
+        $("#content").css("min-height", $(window).height() -  marco - 4);
+
+        
+
+        var url =  "http://bluepages.md/ws/especialidades.php";
+        $.getJSON(url + "?callback=?", null, function(data) {
+            for(var i in data[0]) {
+                if(data[0][i] == 'inicial'){
+                    $('#especialidades').append('<dt>'+data[1][i]+'</dt>');
+                }else{
+                    $('#especialidades').append('<dd><a href="specialistList.html?id='+data[0][i]+'" data-role="button" data-theme="d">'+data[1][i]+'</a></dd>');
+                }
+            }
+
+            $(function(){
+                $('pre.prettyprint').text(
+                    prepareList.toString()
+                        .replace(/\t\t\t\t/g,'')
+                        .replace(/\t/g,'    ')
+                        .replace('function prepareList() {\n','')
+                        .replace(/^\s/, '' )
+                        .replace(/\s+}\s?$/,'')
+                    );
+                
+                // Pretty print code blocks.
+                prettyPrint();
+                prepareList();
+            });       
+
+            function prepareList() {
+                 // Generate the list of buttons for the scrollto links.
+                $('#especialidades dt').each(function(i){
+                    
+                    // Create the new button element for this header.
+                    $('#buttons').append('<div><a href="#" data-header="'+i+'">'+$(this).text()+'</a></div>');
+                });
+                
+                // Add an event handler 
+                $(document).on('click', '#buttons a', function(){
+                
+                    // Scroll to the selected element.
+                    $('#especialidades').list( 'scrollTo', $(this).attr('data-header'), 'fast', 'swing' );
+                });
+                
+                // Add the list plugin.
+                $('#especialidades').list();  
+            }     
+        });
+    }
+
 $(document).ready(function() {
     //$("#content #main").append("</br></br>width: " + $(window).width() + "</br>");  
     //$("#content #main").append("height: " + $(window).height() + "</br>");
     //$("#content #main").append("width: " + $(document).width() + "</br>");  
     //$("#content #main").append("height: " + $(document).height() + "</br>");
-
-
-    var marco = $(".ui-header").height() + $(".ui-footer").height();
-
-    $("#content").css("min-height", $(window).height() -  marco - 4);
-
-    
-
-    var url =  "http://bluepages.md/ws/especialidades.php";
-    $.getJSON(url + "?callback=?", null, function(data) {
-        for(var i in data[0]) {
-            if(data[0][i] == 'inicial'){
-                $('#especialidades').append('<dt>'+data[1][i]+'</dt>');
-            }else{
-                $('#especialidades').append('<dd><a href="specialistList.html?id='+data[0][i]+'" data-role="button" data-theme="d">'+data[1][i]+'</a></dd>');
-            }
-        }
-
-        $(function(){
-            $('pre.prettyprint').text(
-                prepareList.toString()
-                    .replace(/\t\t\t\t/g,'')
-                    .replace(/\t/g,'    ')
-                    .replace('function prepareList() {\n','')
-                    .replace(/^\s/, '' )
-                    .replace(/\s+}\s?$/,'')
-                );
-            
-            // Pretty print code blocks.
-            prettyPrint();
-            prepareList();
-        });       
-
-        function prepareList() {
-             // Generate the list of buttons for the scrollto links.
-            $('#especialidades dt').each(function(i){
-                
-                // Create the new button element for this header.
-                $('#buttons').append('<div><a href="#" data-header="'+i+'">'+$(this).text()+'</a></div>');
-            });
-            
-            // Add an event handler 
-            $(document).on('click', '#buttons a', function(){
-            
-                // Scroll to the selected element.
-                $('#especialidades').list( 'scrollTo', $(this).attr('data-header'), 'fast', 'swing' );
-            });
-            
-            // Add the list plugin.
-            $('#especialidades').list();  
-        }     
-    });
 });
 </script>
 </head>
@@ -81,7 +88,7 @@ $(document).ready(function() {
     <div data-role="page" id="page1">
         <div data-theme="a" data-role="header">
             <h3>
-                <a href="index.html">
+                <a href="../index.html">
                     <div id="logoInt"></div>
                 </a>
             </h3>
