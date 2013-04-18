@@ -11,7 +11,7 @@
 
 <script src="../js/jquery.js"></script>
 <script src="../js/jquery.mobile-1.3.0.min.js"></script>
-<script src="../js/prettify.js"></script>
+
 <script src="../js/jquery.list.min.js"></script>
 
 
@@ -33,20 +33,7 @@ $(document).ready(function() {
                 }
             }
 
-            $(function(){
-                $('pre.prettyprint').text(
-                    prepareList.toString()
-                        .replace(/\t\t\t\t/g,'')
-                        .replace(/\t/g,'    ')
-                        .replace('function prepareList() {\n','')
-                        .replace(/^\s/, '' )
-                        .replace(/\s+}\s?$/,'')
-                    );
-                
-                // Pretty print code blocks.
-                prettyPrint();
-                prepareList();
-            });       
+      
 
             function prepareList() {
                  // Generate the list of buttons for the scrollto links.
@@ -65,7 +52,9 @@ $(document).ready(function() {
                 
                 // Add the list plugin.
                 $('#especialidades').list();  
-            }     
+            }
+
+            prepareList();     
         });
 });
 </script>
