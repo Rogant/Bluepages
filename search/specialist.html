@@ -29,7 +29,7 @@ $(document).ready(function() {
                 if(data[0][i] == 'inicial'){
                     $('#especialidades').append('<dt>'+data[1][i]+'</dt>');
                 }else{
-                    $('#especialidades').append('<dd><a href="specialistList.html?id='+data[0][i]+'" data-role="button" data-theme="d">'+data[1][i]+'</a></dd>');
+                    $('#especialidades').append('<dd><a href="specialistList.html?id='+data[0][i]+'" data-role="button" data-theme="d"  data-ajax="false">'+data[1][i]+'</a></dd>');
                 }
             }
 
