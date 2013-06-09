@@ -13,55 +13,54 @@
 <script src="../js/jquery.mobile-1.3.0.min.js"></script>
 
 <script src="../js/jquery.list.min.js"></script>
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-        var marco = $(".ui-header").height() + $(".ui-footer").height();
-
-        $("#content").css("min-height", $(window).height() -  marco - 4);
-
-        
-
-        var url =  "http://bluepages.md/ws/especialidades.php";
-        $.getJSON(url + "?callback=?", null, function(data) {
-            for(var i in data[0]) {
-                if(data[0][i] == 'inicial'){
-                    $('#especialidades').append('<dt>'+data[1][i]+'</dt>');
-                }else{
-                    $('#especialidades').append('<dd><a href="specialistList.html?id='+data[0][i]+'" data-role="button" data-theme="d"  data-ajax="false">'+data[1][i]+'</a></dd>');
-                }
-            }
-
-      
-
-            function prepareList() {
-                 // Generate the list of buttons for the scrollto links.
-                $('#especialidades dt').each(function(i){
-                    
-                    // Create the new button element for this header.
-                    $('#buttons').append('<div><a href="#" data-header="'+i+'">'+$(this).text()+'</a></div>');
-                });
-                
-                // Add an event handler 
-                $(document).on('click', '#buttons a', function(){
-                
-                    // Scroll to the selected element.
-                    $('#especialidades').list( 'scrollTo', $(this).attr('data-header'), 'fast', 'swing' );
-                });
-                
-                // Add the list plugin.
-                $('#especialidades').list();  
-            }
-
-            prepareList();     
-        });
-});
-</script>
 </head>
 
 <body>
     <div data-role="page" id="page1">
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+            var marco = $(".ui-header").height() + $(".ui-footer").height();
+
+             $(".uiContentMain").css("min-height", $(window).height() -  marco - 4);
+
+            
+
+            var url =  "http://bluepages.md/ws/especialidades.php";
+            $.getJSON(url + "?callback=?", null, function(data) {
+                for(var i in data[0]) {
+                    if(data[0][i] == 'inicial'){
+                        $('#especialidades').append('<dt>'+data[1][i]+'</dt>');
+                    }else{
+                        $('#especialidades').append('<dd><a href="specialistList.html?id='+data[0][i]+'" data-role="button" data-theme="d">'+data[1][i]+'</a></dd>');
+                    }
+                }
+
+          
+
+                function prepareList() {
+                     // Generate the list of buttons for the scrollto links.
+                    $('#especialidades dt').each(function(i){
+                        
+                        // Create the new button element for this header.
+                        $('#buttons').append('<div><a href="#" data-header="'+i+'">'+$(this).text()+'</a></div>');
+                    });
+                    
+                    // Add an event handler 
+                    $(document).on('click', '#buttons a', function(){
+                    
+                        // Scroll to the selected element.
+                        $('#especialidades').list( 'scrollTo', $(this).attr('data-header'), 'fast', 'swing' );
+                    });
+                    
+                    // Add the list plugin.
+                    $('#especialidades').list();  
+                }
+
+                prepareList();     
+            });
+    });
+    </script>
         <div data-theme="a" data-role="header">
             <h3>
                 <a href="../index.html">
@@ -69,7 +68,7 @@ $(document).ready(function() {
                 </a>
             </h3>
         </div>
-        <div data-role="content" id="content">
+        <div data-role="content" id="content" class="uiContentMain">
             <div id="search">
                 <input type="text" id="searchInp" placeholder="search your especialist...">
                 <a href="#" data-role="button" data-theme="c">Advanced Search</a>

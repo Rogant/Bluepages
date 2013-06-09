@@ -11,24 +11,22 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/jquery.mobile-1.3.0.min.js"></script>
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-    var marco = $(".ui-header").height() + $(".ui-footer").height();
-
-    $("#content").css("min-height", $(window).height() -  marco - 4);
-
-});
-
-    function cambiarPagina(){
-        $.mobile.changePage( "search/specialist.html", { reloadPage: true });
-    }
-</script>
 </head>
 
 <body>
     <div data-role="page" id="page1">
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var marco = $(".ui-header").height() + $(".ui-footer").height();
+
+         $(".uiContentMain").css("min-height", $(window).height() -  marco - 4);
+
+    });
+
+        function cambiarPagina(){
+            $.mobile.changePage( "search/specialist.html", { reloadPage: true });
+        }
+    </script>
         <div data-theme="a" data-role="header">
             <h3>
                 <a href="index.html">
@@ -36,7 +34,7 @@ $(document).ready(function() {
                 </a>
             </h3>
         </div>
-        <div data-role="content" id="content">
+        <div data-role="content" id="content" class="uiContentMain">
             <div id="search">
                 <input type="text" id="searchInp" placeholder="search your especialist...">
                 <a href="#" data-role="button" data-theme="c">Advanced Search</a>

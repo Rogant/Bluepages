@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     var marco = $(".ui-header").height() + $(".ui-footer").height();
 
-    $("#content").css("min-height", $(window).height() -  marco - 4);
+     $(".uiContentMain").css("min-height", $(window).height() -  marco - 4);
 });
 </script>
 </head>
@@ -33,11 +33,11 @@ $(document).ready(function() {
                 <div id="logo"></div>
             </h3>
         </div>
-        <div data-role="content" id="content">
+        <div data-role="content" id="content" class="uiContentMain">
             <div id="main">
                 <div id="intro">
                     <p class="space">The most complete health directory</p>
-                    <a class="space" href="login.html" data-role="button" data-theme="b" data-ajax="false">MEMBERS LOGIN</a>
+                    <a class="space" href="login.html" data-role="button" data-theme="b">MEMBERS LOGIN</a>
                     <a href="search.html" data-role="button" data-theme="b">VISITOR SEARCH</a>
                 </div>
             </div>
