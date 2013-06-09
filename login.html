@@ -15,15 +15,31 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    //$("#content #main").append("</br></br>width: " + $(window).width() + "</br>");  
-    //$("#content #main").append("height: " + $(window).height() + "</br>");
-    //$("#content #main").append("width: " + $(document).width() + "</br>");  
-    //$("#content #main").append("height: " + $(document).height() + "</br>");
-
-
     var marco = $(".ui-header").height() + $(".ui-footer").height();
 
     $("#content").css("min-height", $(window).height() -  marco - 4);
+
+    $("#submitLogin").click(function() {
+        var url =  "http://bluepages.md/w5_3687/w5_login.php";
+        $.getJSON(url + "?callback=?", {
+            format: "jsonp",
+            username: $('#email').val(),
+            password: $('#password').val()
+        }, function(data) {
+            if(data.respuesta){
+                window.localStorage.setItem("Login", data.respuesta);
+                window.localStorage.setItem("nombresLogin", data.registro.nombres);
+                window.localStorage.setItem("apellidosLogin", data.registro.apellidos);
+                window.localStorage.setItem("idLogin", data.registro.id);
+                window.localStorage.setItem("usernameLogin", data.registro.username);
+
+                window.location = "search.html";
+            }else{
+                alert('login incorrect.');
+            }
+        });      
+    });
+
 });
 </script>
 </head>
@@ -42,13 +58,14 @@ $(document).ready(function() {
                         MEMBERS AREA
                     </div>
 
-                    <input type="text" placeholder="E-mail">
-                    <input type="text" placeholder="Password">
+                    <input type="text" placeholder="E-mail" id="email">
+                    <input type="password" placeholder="Password" id="password">
+
                     <div class="options">
                         <a href="#">Forgot your password?</a>
-                        <input type="checkbox"><a href="#" class="rememberMe">Remember me</a>
+                        <input type="checkbox" checked><a href="#" class="rememberMe">Remember me</a>
 
-                        <input type="submit" value="Login" data-theme="a">
+                        <input type="submit" id="submitLogin" value="Login" data-theme="a">
                     </div>
                 </div>
             </div>

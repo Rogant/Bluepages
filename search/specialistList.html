@@ -39,12 +39,12 @@ $(document).ready(function() {
     var sel_especialidades = getParameterByName('id');
     var url =  "http://bluepages.md/ws/search.php";
     $.getJSON(url + "?callback=?", {
-    categoria: "1",
-    sel_especialidades: sel_especialidades,
-    id_pais: "271",
-    id_estado: "4",
-    busqueda: ""
-  }, function(data) {
+        categoria: "1",
+        sel_especialidades: sel_especialidades,
+        id_pais: "271",
+        id_estado: "4",
+        busqueda: ""
+    }, function(data) {
         for(var i in data[0]) {
             if(data[0][i] == 'inicial'){
                 $('#especialidades').append('<dt>'+data[1][i]+'</dt>');

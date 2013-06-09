@@ -15,11 +15,9 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    //$("#content #main").append("</br></br>width: " + $(window).width() + "</br>");  
-    //$("#content #main").append("height: " + $(window).height() + "</br>");
-    //$("#content #main").append("width: " + $(document).width() + "</br>");  
-    //$("#content #main").append("height: " + $(document).height() + "</br>");
-
+    if(window.localStorage.getItem("Login")){
+        window.location = "search.html";
+    }
 
     var marco = $(".ui-header").height() + $(".ui-footer").height();
 
@@ -39,8 +37,8 @@ $(document).ready(function() {
             <div id="main">
                 <div id="intro">
                     <p class="space">The most complete health directory</p>
-                    <a class="space" href="login.html" data-role="button" data-theme="b">MEMBERS LOGIN</a>
-                    <a href="searchGuest.html" data-role="button" data-theme="b">VISITOR SEARCH</a>
+                    <a class="space" href="login.html" data-role="button" data-theme="b" data-ajax="false">MEMBERS LOGIN</a>
+                    <a href="search.html" data-role="button" data-theme="b">VISITOR SEARCH</a>
                 </div>
             </div>
         </div>
