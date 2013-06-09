@@ -27,7 +27,7 @@ $(document).ready(function() {
 </head>
 
 <body>
-    <div data-role="page" id="page1">
+    <div data-role="page" id="home">
         <div data-theme="a" data-role="header">
             <h3>
                 <div id="logo"></div>
@@ -37,7 +37,7 @@ $(document).ready(function() {
             <div id="main">
                 <div id="intro">
                     <p class="space">The most complete health directory</p>
-                    <a class="space" href="login.html" data-role="button" data-theme="b">MEMBERS LOGIN</a>
+                    <a class="space" href="#login" data-role="button" data-theme="b">MEMBERS LOGIN</a>
                     <a href="search.html" data-role="button" data-theme="b">VISITOR SEARCH</a>
                 </div>
             </div>
@@ -45,6 +45,80 @@ $(document).ready(function() {
         <div data-theme="a" data-role="footer" data-position="fixed">
             <h3>
                 Be part of BluePages MD’s directory
+            </h3>
+            <div class="singup">
+                <a href="#" data-role="button" data-theme="a">Sing up now!</a>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="login">
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var marco = $(".ui-header").height() + $(".ui-footer").height();
+
+         $(".uiContentMain").css("min-height", $(window).height() -  marco - 4);
+
+        $("#submitLogin").click(function() {
+            var url =  "http://bluepages.md/w5_3687/w5_login.php";
+            $.getJSON(url + "?callback=?", {
+                format: "jsonp",
+                username: $('#email').val(),
+                password: $('#password').val()
+            }, function(data) {
+                if(data.respuesta){
+                    window.localStorage.setItem("Login", data.respuesta);
+                    window.localStorage.setItem("nombresLogin", data.registro.nombres);
+                    window.localStorage.setItem("apellidosLogin", data.registro.apellidos);
+                    window.localStorage.setItem("idLogin", data.registro.id);
+                    window.localStorage.setItem("usernameLogin", data.registro.username);
+
+                    window.location = "search.html";
+                }else{
+                    $("#popupDialog").popup("open");
+                }
+            });      
+        });
+
+    });
+    </script>
+
+        <div data-theme="a" data-role="header">
+            <h3>
+                <div id="logo"></div>
+            </h3>
+        </div>
+        <div data-role="content" id="content" class="uiContentMain">
+            <div id="main">
+                <div id="formCont">
+                    <div class="alert">
+                        MEMBERS AREA
+                    </div>
+
+                    <input type="text" placeholder="E-mail" id="email">
+                    <input type="password" placeholder="Password" id="password">
+
+                    <div class="options">
+                        <a href="#">Forgot your password?</a>
+                        <input type="checkbox" checked><a href="#" class="rememberMe">Remember me</a>
+
+                        <input type="submit" id="submitLogin" value="Login" data-theme="a">
+                    </div>
+                </div>
+                <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="b" data-dismissible="false" class="ui-corner-all">
+                    <div data-role="header" data-theme="b" class="ui-corner-top">
+                        <h1></h1>
+                    </div>
+                    <div data-role="content" data-theme="b" class="ui-corner-bottom ui-content">
+                        <h3 class="ui-title">Login incorrect <br> Please try again.</p>
+                        <a href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="b">Ok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-theme="a" data-role="footer" data-position="fixed">
+            <h3>
+                Don’t have an account?
             </h3>
             <div class="singup">
                 <a href="#" data-role="button" data-theme="a">Sing up now!</a>
