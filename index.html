@@ -16,7 +16,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
     if(window.localStorage.getItem("Login")){
-        window.location = "search.html";
+        $.mobile.navigate( "search.html" );
     }
 
     var marco = $(".ui-header").height() + $(".ui-footer").height();

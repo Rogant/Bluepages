@@ -19,7 +19,7 @@
                     window.localStorage.setItem("idLogin", data.registro.id);
                     window.localStorage.setItem("usernameLogin", data.registro.username);
 
-                    window.location = "search.html";
+                    $.mobile.navigate( "search.html");
                 }else{
                     $("#popupDialog").popup("open");
                 }
