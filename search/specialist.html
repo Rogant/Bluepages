@@ -6,21 +6,22 @@
 
              $(".uiContentMain").css("min-height", $(window).height() -  marco - 4);
 
-            
-
             var url =  "http://bluepages.md/w5_3687/w5_specialties.php";
             $.getJSON(url + "?callback=?",{
                     format: "jsonp",
                 }, function(data) {
                     $.each( data.spacialties, function( index, value ) {
-                        //console.log(data.spacialties[index]);
                         if(data.spacialties[index].id == 'inicial'){
                             $('#especialidades').append('<dt>'+data.spacialties[index].especialidad+'</dt>');
                         }else{
-                            $('#especialidades').append('<dd><a href="specialistList.html?id='+data.spacialties[index].id+'" data-role="button" data-theme="d">'+data.spacialties[index].especialidad+'</a></dd>');
+                            $('#especialidades').append('<dd><a href="specialistList.html" class="itemLista" data-id="'+data.spacialties[index].id+'" data-role="button" data-theme="d">'+data.spacialties[index].especialidad+'</a></dd>');
                         }
 
                     });
+
+                    $(".itemLista").click(function() {
+                        window.localStorage.setItem("idLista", $(this).attr('data-id'));
+                    });                   
 
                     function prepareList() {
                          // Generate the list of buttons for the scrollto links.

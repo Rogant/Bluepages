@@ -1,43 +1,36 @@
 <div data-role="page" id="page1">
+    <script src="../js/jquery.list.min.js"></script>
     <script type="text/javascript">
 
     $(document).ready(function() {
-
-        function getParameterByName(name)
-        {
-            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-            var regexS = "[\\?&]" + name + "=([^&#]*)";
-            var regex = new RegExp(regexS);
-            var results = regex.exec(window.location.search);
-            if(results == null)
-                return "";
-            else
-                return decodeURIComponent(results[1].replace(/\+/g, " "));
-        }
-
-
         var marco = $(".ui-header").height() + $(".ui-footer").height();
 
          $(".uiContentMain").css("min-height", $(window).height() -  marco - 4);
 
-        
-        var sel_especialidades = getParameterByName('id');
-        var url =  "http://bluepages.md/ws/search.php";
+        var url =  "http://bluepages.md/w5_3687/w5_specialty.php";
         $.getJSON(url + "?callback=?", {
-            categoria: "1",
-            sel_especialidades: sel_especialidades,
-            id_pais: "271",
-            id_estado: "4",
-            busqueda: ""
+            format: "jsonp",
+            id_especialidad: window.localStorage.getItem("idLista"),
+            from: "0",
+            to: "20"
         }, function(data) {
-            for(var i in data[0]) {
+            console.log(data);
+            $.each( data.resultado, function( index, value ) {
+                if(data.resultado[index].id == 'inicial'){
+                    $('#especialidades').append('<dt>'+data.resultado[index].nombres+'</dt>');
+                }else{
+                    $('#especialidades').append('<dd><a href="profile.html" class="itemLista" data-id="'+data.resultado[index].id+'" data-role="button" data-theme="d">'+data.resultado[index].nombres+' '+ data.resultado[index].apellidos+'</a></dd>');
+                }
+            });
+
+            /*for(var i in data[0]) {
                 if(data[0][i] == 'inicial'){
                     $('#especialidades').append('<dt>'+data[1][i]+'</dt>');
                 }else{
                     var Datosfin = data[1][i];
                     $('#especialidades').append('<dd>'+data[1][i]+'</dd>');
                 }
-            }
+            }*/
          
 
             function prepareList() {
