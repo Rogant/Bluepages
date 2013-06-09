@@ -1,33 +1,33 @@
 <div data-role="page" id="page1">
-<script type="text/javascript">
-$(document).ready(function() {
-    var marco = $(".ui-header").height() + $(".ui-footer").height();
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var marco = $(".ui-header").height() + $(".ui-footer").height();
 
-     $(".uiContentMain").css("min-height", $(window).height() -  marco - 4);
+         $(".uiContentMain").css("min-height", $(window).height() -  marco - 4);
 
-    $("#submitLogin").click(function() {
-        var url =  "http://bluepages.md/w5_3687/w5_login.php";
-        $.getJSON(url + "?callback=?", {
-            format: "jsonp",
-            username: $('#email').val(),
-            password: $('#password').val()
-        }, function(data) {
-            if(data.respuesta){
-                window.localStorage.setItem("Login", data.respuesta);
-                window.localStorage.setItem("nombresLogin", data.registro.nombres);
-                window.localStorage.setItem("apellidosLogin", data.registro.apellidos);
-                window.localStorage.setItem("idLogin", data.registro.id);
-                window.localStorage.setItem("usernameLogin", data.registro.username);
+        $("#submitLogin").click(function() {
+            var url =  "http://bluepages.md/w5_3687/w5_login.php";
+            $.getJSON(url + "?callback=?", {
+                format: "jsonp",
+                username: $('#email').val(),
+                password: $('#password').val()
+            }, function(data) {
+                if(data.respuesta){
+                    window.localStorage.setItem("Login", data.respuesta);
+                    window.localStorage.setItem("nombresLogin", data.registro.nombres);
+                    window.localStorage.setItem("apellidosLogin", data.registro.apellidos);
+                    window.localStorage.setItem("idLogin", data.registro.id);
+                    window.localStorage.setItem("usernameLogin", data.registro.username);
 
-                window.location = "search.html";
-            }else{
-                $("#popupDialog").popup("open");
-            }
-        });      
+                    window.location = "search.html";
+                }else{
+                    $("#popupDialog").popup("open");
+                }
+            });      
+        });
+
     });
-
-});
-</script>
+    </script>
 
     <div data-theme="a" data-role="header">
         <h3>
