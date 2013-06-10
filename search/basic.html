@@ -3,12 +3,12 @@
     <script src="../js/scripts.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        $('.searchInp').val(window.localStorage.getItem("searchTerm"));
+        $('.searchInpFind').val(window.localStorage.getItem("searchTerm"));
 
         var url =  "http://bluepages.md/w5_3687/w5_search.php";
         $.getJSON(url + "?callback=?",{
                 format: "jsonp",
-                busqueda: $('.searchInp').val(),
+                busqueda: $('.searchInpFind').val(),
                 from: 0,
                 to: 100
             }, function(data) {
@@ -47,52 +47,55 @@
                 prepareList();     
         });
 
-        $(".searchBtnFind").click(function() {
-            var url =  "http://bluepages.md/w5_3687/w5_search.php";
-            $.getJSON(url + "?callback=?",{
-                    format: "jsonp",
-                    busqueda: $('.searchInp').val(),
-                    from: 0,
-                    to: 100
-                }, function(data) {
 
-                    $('#buttons').html(' ');
-                    $('#especialidades').html(' ');
+        $('.searchInpFind').keypress(function(e) {
+            if(e.which == 13) {
+                var url =  "http://bluepages.md/w5_3687/w5_search.php";
+                $.getJSON(url + "?callback=?",{
+                        format: "jsonp",
+                        busqueda: $('.searchInpFind').val(),
+                        from: 0,
+                        to: 100
+                    }, function(data) {
 
-                    $.each( data.resultado, function( index, value ) {
-                        if(data.resultado[index].id == 'inicial'){
-                            $('#especialidades').append('<dt>'+data.resultado[index].nombre+'</dt>');
-                        }else{
-                            $('#especialidades').append('<dd><a href="../perfil.html" class="itemLista" data-id="'+data.resultado[index].id+'" data-role="button" data-theme="d">'+data.resultado[index].nombre+'</a></dd>');
+                        $('#buttons').html(' ');
+                        $('#especialidades').html(' ');
+
+                        $.each( data.resultado, function( index, value ) {
+                            if(data.resultado[index].id == 'inicial'){
+                                $('#especialidades').append('<dt>'+data.resultado[index].nombre+'</dt>');
+                            }else{
+                                $('#especialidades').append('<dd><a href="../perfil.html" class="itemLista" data-id="'+data.resultado[index].id+'" data-role="button" data-theme="d">'+data.resultado[index].nombre+'</a></dd>');
+                            }
+
+                        });
+
+                        $(".itemLista").click(function() {
+                            window.localStorage.setItem("idLista", $(this).attr('data-id'));
+                        });                   
+
+                        function prepareList() {
+                             // Generate the list of buttons for the scrollto links.
+                            $('#especialidades dt').each(function(i){
+                                
+                                // Create the new button element for this header.
+                                $('#buttons').append('<div><a href="javascript:;" data-header="'+i+'">'+$(this).text()+'</a></div>');
+                            });
+                            
+                            // Add an event handler 
+                            $(document).on('click', '#buttons a', function(){
+                            
+                                // Scroll to the selected element.
+                                $('#especialidades').list( 'scrollTo', $(this).attr('data-header'), 'fast', 'swing' );
+                            });
+                            
+                            // Add the list plugin.
+                            $('#especialidades').list();  
                         }
 
-                    });
-
-                    $(".itemLista").click(function() {
-                        window.localStorage.setItem("idLista", $(this).attr('data-id'));
-                    });                   
-
-                    function prepareList() {
-                         // Generate the list of buttons for the scrollto links.
-                        $('#especialidades dt').each(function(i){
-                            
-                            // Create the new button element for this header.
-                            $('#buttons').append('<div><a href="javascript:;" data-header="'+i+'">'+$(this).text()+'</a></div>');
-                        });
-                        
-                        // Add an event handler 
-                        $(document).on('click', '#buttons a', function(){
-                        
-                            // Scroll to the selected element.
-                            $('#especialidades').list( 'scrollTo', $(this).attr('data-header'), 'fast', 'swing' );
-                        });
-                        
-                        // Add the list plugin.
-                        $('#especialidades').list();  
-                    }
-
-                    prepareList();     
-            });
+                        prepareList();     
+                });
+            }
         });
     });
     </script>
@@ -109,7 +112,7 @@
     </div>
     <div data-role="content" id="content" class="uiContentMain">
         <div id="search">
-            <input type="text" class="searchInp" placeholder="search your especialist...">
+            <input type="text" class="searchInpFind" placeholder="search your especialist...">
             <a href="javascript:;" data-role="button" data-theme="c" class="searchBtnFind">Advanced Search</a>
         </div>
         <div id="choosecat">

@@ -20,15 +20,18 @@ $(document).ready(function() {
         });         
     }
 
-    /*$(".searchBtn").click(function() {
-        window.localStorage.setItem("searchTerm", $('.searchInp').val());
-        $.mobile.navigate( "search/basic.html" );
-    });*/
-
     $('.searchInp').keypress(function(e) {
         if(e.which == 13) {
-            alert('You pressed enter!');
-            $.mobile.navigate( "search/basic.html" );
+            window.localStorage.setItem("searchTerm", $('.searchInp').val());
+
+            var str = $('.ui-page-active').data('url');
+            var n = str.indexOf("search/");
+
+            if(n > 0){
+                $.mobile.navigate( "../search/basic.html" );
+            }else{
+                $.mobile.navigate( "search/basic.html" );
+            }
         }
     });
 });
