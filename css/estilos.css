@@ -335,6 +335,21 @@ button:hover{
 	font-weight: bold;
 }
 
+.ui-list .name{
+	color: #213c5d;
+	display: block;
+}
+
+.ui-list .specialty{
+	color: #0080c8;
+	display: block;
+}
+
+.ui-list .locate{
+	color: #9d9b9b;
+	display: block;
+}
+
 .ui-popup .ui-content{
 	padding: 1em;
 }

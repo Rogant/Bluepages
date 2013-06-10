@@ -14,24 +14,17 @@
             from: "0",
             to: "20"
         }, function(data) {
-            console.log(data);
             $.each( data.resultado, function( index, value ) {
                 if(data.resultado[index].id == 'inicial'){
                     $('#especialidades').append('<dt>'+data.resultado[index].nombres+'</dt>');
                 }else{
-                    $('#especialidades').append('<dd><a href="profile.html" class="itemLista" data-id="'+data.resultado[index].id+'" data-role="button" data-theme="d">'+data.resultado[index].nombres+' '+ data.resultado[index].apellidos+'</a></dd>');
+                    $('#especialidades').append('<dd><a href="../profile.html" class="itemLista" data-id="'+data.resultado[index].id+'" data-role="button" data-theme="d">     <span class="name">'+data.resultado[index].nombres+' '+ data.resultado[index].apellidos+'</span> <span class="specialty">'+data.resultado[index].id_especialidad+'</span> <span class="locate">'+data.resultado[index].ciudad+' ('+ data.resultado[index].estado+')</span> </a></dd>');
                 }
             });
-
-            /*for(var i in data[0]) {
-                if(data[0][i] == 'inicial'){
-                    $('#especialidades').append('<dt>'+data[1][i]+'</dt>');
-                }else{
-                    var Datosfin = data[1][i];
-                    $('#especialidades').append('<dd>'+data[1][i]+'</dd>');
-                }
-            }*/
          
+            $(".itemLista").click(function() {
+                window.localStorage.setItem("idLista", $(this).attr('data-id'));
+            }); 
 
             function prepareList() {
                  // Generate the list of buttons for the scrollto links.

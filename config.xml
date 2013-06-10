@@ -27,4 +27,6 @@
     <gap:splash src="splash/Default-Landscape.png" gap:platform="ios" width="1024" height="768" />
     <gap:splash src="splash/Default-Portrait.png" gap:platform="ios" width="768" height="1024" />
 
+    <preference name="phonegap-version" value="2.7.0" />
+
 </widget>

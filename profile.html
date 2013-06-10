@@ -1,9 +1,19 @@
 <div data-role="page" id="page1">
-    <script type="text/javascript">
+   <script type="text/javascript">
+
     $(document).ready(function() {
         var marco = $(".ui-header").height() + $(".ui-footer").height();
 
          $(".uiContentMain").css("min-height", $(window).height() -  marco - 4);
+
+        var url =  "http://bluepages.md/w5_3687/w5_profile.php";
+        $.getJSON(url + "?callback=?", {
+            format: "jsonp",
+            id: window.localStorage.getItem("idLista"),
+        }, function(data) {
+            console.log(window.localStorage.getItem("idLista"));
+            console.log(data);  
+        });
 
     });
     </script>
@@ -19,15 +29,8 @@
             <input type="text" id="searchInp" placeholder="search your especialist...">
             <a href="javascript:;" data-role="button" data-theme="c">Advanced Search</a>
         </div>
-        <div id="choosecat">
-            <p>Choose a category:</p>
-            <ul>
-                <li class="s1"><a href="search/specialist.html" data-role="button" data-theme="d">Specialist</a></li>
-                <li class="s2"><a href="javascript:;" data-role="button" data-theme="d">Hospital / Clinic</a></li>
-                <li class="s3"><a href="javascript:;" data-role="button" data-theme="d">Hospital Supplier</a></li>
-                <li class="s4"><a href="javascript:;" data-role="button" data-theme="d">Pharmacy</a></li>
-                <li class="s5"><a href="javascript:;" data-role="button" data-theme="d">Medical Resident</a></li>
-            </ul>
+        <div id="profile">
+
         </div>
     </div>
     <div data-theme="d" data-role="footer" data-position="fixed">
