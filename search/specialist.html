@@ -1,11 +1,8 @@
 <div data-role="page" id="page1">
+    <script src="../js/scripts.js"></script>
     <script src="../js/jquery.list.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-            var marco = $(".ui-header").height() + $(".ui-footer").height();
-
-             $(".uiContentMain").css("min-height", $(window).height() -  marco - 4);
-
             var url =  "http://bluepages.md/w5_3687/w5_specialties.php";
             $.getJSON(url + "?callback=?",{
                     format: "jsonp",
@@ -51,6 +48,10 @@
             <a href="../index.html">
                 <div id="logoInt"></div>
             </a>
+            <div class="logout">
+                <div class="name"></div>
+                <div class="btn"></div>
+            </div>            
         </h3>
     </div>
     <div data-role="content" id="content" class="uiContentMain">

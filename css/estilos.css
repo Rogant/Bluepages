@@ -353,3 +353,27 @@ button:hover{
 .ui-popup .ui-content{
 	padding: 1em;
 }
+
+.logout{
+	display: none;
+	width: 200px;
+	height: 54px;
+	position: absolute;
+	top: 12px;
+	right: 20px;
+	text-align: right;
+}
+
+.logout .name{
+	color: #fff;
+	font-size: 14px;
+}
+
+.logout .btn{
+	background: url('../images/logoutBtn.png') no-repeat;
+	width: 59px;
+	height: 23px;	
+	float: right;
+	margin-top: 5px;
+	cursor: pointer;
+}

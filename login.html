@@ -13,7 +13,7 @@
                 password: $('#password').val()
             }, function(data) {
                 if(data.respuesta){
-                    window.localStorage.setItem("Login", data.respuesta);
+                    window.localStorage.setItem("Login", 1);
                     window.localStorage.setItem("nombresLogin", data.registro.nombres);
                     window.localStorage.setItem("apellidosLogin", data.registro.apellidos);
                     window.localStorage.setItem("idLogin", data.registro.id);
