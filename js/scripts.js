@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    console.log('cargo');
-
     var marco = $(".ui-header").height() + $(".ui-footer").height();
 
      $(".uiContentMain").css("min-height", $(window).height() -  marco - 4);
@@ -21,4 +19,16 @@ $(document).ready(function() {
             $.mobile.navigate( "index.html" );
         });         
     }
+
+    /*$(".searchBtn").click(function() {
+        window.localStorage.setItem("searchTerm", $('.searchInp').val());
+        $.mobile.navigate( "search/basic.html" );
+    });*/
+
+    $('.searchInp').keypress(function(e) {
+        if(e.which == 13) {
+            alert('You pressed enter!');
+            $.mobile.navigate( "search/basic.html" );
+        }
+    });
 });

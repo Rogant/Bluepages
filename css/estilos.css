@@ -322,13 +322,13 @@ button:hover{
 	border-color: #999;
 }
 
-.ui-list dd{
+#especialidades dd{
 	background: #fff;
 	padding: 9px !important;
 	border-bottom: 1px solid #ddd;
 }
 
-.ui-list dd a{
+#especialidades dd a{
 	color: #095681;
 	font-size: 14px;
 	text-decoration: none;
