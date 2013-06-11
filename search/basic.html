@@ -16,7 +16,7 @@
                     if(data.resultado[index].id == 'inicial'){
                         $('#especialidades').append('<dt>'+data.resultado[index].nombre+'</dt>');
                     }else{
-                        $('#especialidades').append('<dd><a href="../perfil.html" class="itemLista" data-id="'+data.resultado[index].id+'" data-role="button" data-theme="d">'+data.resultado[index].nombre+'</a></dd>');
+                        $('#especialidades').append('<dd><a href="../profile.html" class="itemLista" data-id="'+data.resultado[index].id+'" data-role="button" data-theme="d">'+data.resultado[index].nombre+'</a></dd>');
                     }
 
                 });
@@ -65,7 +65,7 @@
                             if(data.resultado[index].id == 'inicial'){
                                 $('#especialidades').append('<dt>'+data.resultado[index].nombre+'</dt>');
                             }else{
-                                $('#especialidades').append('<dd><a href="../perfil.html" class="itemLista" data-id="'+data.resultado[index].id+'" data-role="button" data-theme="d">'+data.resultado[index].nombre+'</a></dd>');
+                                $('#especialidades').append('<dd><a href="../profile.html" class="itemLista" data-id="'+data.resultado[index].id+'" data-role="button" data-theme="d">'+data.resultado[index].nombre+'</a></dd>');
                             }
 
                         });
@@ -127,7 +127,7 @@
     <div data-theme="d" data-role="footer" data-position="fixed">
         <ul>
             <li><a href="javascript:;"><img src="../images/homeFbtn.jpg"></a></li>
-            <li><a href="javascript:;"><img src="../images/profileFbtn.jpg"></a></li>
+            <li><a href="../profile.html" class="profileFbtn"><img src="../images/profileFbtn.jpg"></a></li>
             <li><a href="javascript:;"><img src="../images/networksFbtn.jpg"></a></li>
             <li><a href="javascript:;"><img src="../images/notificationsFbtn.jpg"></a></li>
         </ul>

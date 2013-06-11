@@ -34,4 +34,8 @@ $(document).ready(function() {
             }
         }
     });
+
+    $(".profileFbtn").click(function() {
+        window.localStorage.setItem("idLista", window.localStorage.getItem("idLogin"));
+    }); 
 });

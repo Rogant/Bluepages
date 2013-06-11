@@ -377,3 +377,42 @@ button:hover{
 	margin-top: 5px;
 	cursor: pointer;
 }
+
+#profile{
+	background: #eeeeef;
+	overflow: hidden;
+	width: 100%;
+}
+
+#profile .s1{
+	width: 49%;
+	float: left;
+}
+
+#profile img{
+	width: 100%;
+}
+
+#profile .s2{
+	width: 50%;
+	margin-left: 1%;
+	float: left;
+}
+
+#profile .s2 .name{
+	font-size: 14px;
+	color: #213c5d;
+	font-weight: bold;
+}
+
+#profile .s2 .especialidades{
+	color: #0080c8;
+}
+
+#profile .s2 .locate, #profile .s2 .bio{
+	color: #8a8787;
+}
+
+#profile .s2 .tel{
+	color: #213c5d;
+}

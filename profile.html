@@ -8,10 +8,28 @@
             format: "jsonp",
             id: window.localStorage.getItem("idLista"),
         }, function(data) {
-            console.log(window.localStorage.getItem("idLista"));
-            console.log(data);  
+            $('#profile .s1 img').attr('src' ,'http://bluepages.md/'+data.registro.pic_usuario);
+            $('#profile .s2 .name').html('null');
+            $('#profile .s2 .especialidades').html(data.especialidades[0].especialidad);
+            $('#profile .s2 .locate').html(data.registro.ciudad +' ('+data.registro.estado+')');
+            $('#profile .s2 .tel').html(data.registro.telefono);
+            $('#profile .s2 .bio').html('null');
+        });
+        $("a[data-role=tab]").each(function () {
+            var anchor = $(this);
+            anchor.bind("click", function () {
+                $.mobile.changePage(anchor.attr("href"), {
+                    transition: "none",
+                    changeHash: false
+                });
+                return false;
+            });
         });
 
+        $("div[data-role=page]").bind("pagebeforeshow", function (e, data) {
+            $.mobile.silentScroll(0);
+            $.mobile.changePage.defaults.transition = 'slide';
+        });
     });
     </script>
     <div data-theme="a" data-role="header">
@@ -31,13 +49,22 @@
             <a href="javascript:;" data-role="button" data-theme="c" class="searchBtn">Advanced Search</a>
         </div>
         <div id="profile">
-
+            <div class="s1">
+                <img src="">
+            </div>
+            <div class="s2">
+                <div class="name"></div>
+                <div class="especialidades"></div>
+                <div class="locate"></div>
+                <div class="tel"></div>
+                <div class="bio"></div>
+            </div>
         </div>
     </div>
     <div data-theme="d" data-role="footer" data-position="fixed">
         <ul>
             <li><a href="javascript:;"><img src="images/homeFbtn.jpg"></a></li>
-            <li><a href="javascript:;"><img src="images/profileFbtn.jpg"></a></li>
+            <li><a href="profile.html" class="profileFbtn"><img src="images/profileFbtn.jpg"></a></li>
             <li><a href="javascript:;"><img src="images/networksFbtn.jpg"></a></li>
             <li><a href="javascript:;"><img src="images/notificationsFbtn.jpg"></a></li>
         </ul>
