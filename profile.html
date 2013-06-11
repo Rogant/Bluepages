@@ -8,27 +8,13 @@
             format: "jsonp",
             id: window.localStorage.getItem("idLista"),
         }, function(data) {
+            console.log(data);
             $('#profile .s1 img').attr('src' ,'http://bluepages.md/'+data.registro.pic_usuario);
-            $('#profile .s2 .name').html('null');
+            $('#profile .s2 .name').html(data.registro.nombres +' '+data.registro.apellidos);
             $('#profile .s2 .especialidades').html(data.especialidades[0].especialidad);
             $('#profile .s2 .locate').html(data.registro.ciudad +' ('+data.registro.estado+')');
             $('#profile .s2 .tel').html(data.registro.telefono);
             $('#profile .s2 .bio').html('null');
-        });
-        $("a[data-role=tab]").each(function () {
-            var anchor = $(this);
-            anchor.bind("click", function () {
-                $.mobile.changePage(anchor.attr("href"), {
-                    transition: "none",
-                    changeHash: false
-                });
-                return false;
-            });
-        });
-
-        $("div[data-role=page]").bind("pagebeforeshow", function (e, data) {
-            $.mobile.silentScroll(0);
-            $.mobile.changePage.defaults.transition = 'slide';
         });
     });
     </script>
