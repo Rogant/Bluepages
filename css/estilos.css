@@ -326,6 +326,7 @@ button:hover{
 	background: #fff;
 	padding: 9px !important;
 	border-bottom: 1px solid #ddd;
+	overflow: hidden;
 }
 
 #especialidades dd a{
@@ -415,4 +416,18 @@ button:hover{
 
 #profile .s2 .tel{
 	color: #213c5d;
+}
+
+#especialidades .s1{
+	float: left;
+	width: 20%;
+}
+
+#especialidades .s1 img{
+	width: 65px;
+}
+
+#especialidades .s2{
+	float: left;
+	width: 80%;
 }

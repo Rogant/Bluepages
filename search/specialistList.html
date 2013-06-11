@@ -11,11 +11,12 @@
             from: "0",
             to: "20"
         }, function(data) {
+            console.l
             $.each( data.resultado, function( index, value ) {
                 if(data.resultado[index].id == 'inicial'){
                     $('#especialidades').append('<dt>'+data.resultado[index].nombres+'</dt>');
                 }else{
-                    $('#especialidades').append('<dd><a href="../profile.html" class="itemLista" data-id="'+data.resultado[index].id+'" data-role="button" data-theme="d">     <span class="name">'+data.resultado[index].nombres+' '+ data.resultado[index].apellidos+'</span> <span class="specialty">'+data.resultado[index].id_especialidad+'</span> <span class="locate">'+data.resultado[index].ciudad+' ('+ data.resultado[index].estado+')</span> </a></dd>');
+                    $('#especialidades').append('<dd><div class="s1"><img src="http://bluepages.md/'+data.resultado[index].pic_usuario+'"></div><div class="s2"><a href="../profile.html" class="itemLista" data-id="'+data.resultado[index].id+'" data-role="button" data-theme="d">     <span class="name">'+data.resultado[index].nombres+' '+ data.resultado[index].apellidos+'</span> <span class="specialty">'+data.resultado[index].especialidad+'</span> <span class="locate">'+data.resultado[index].ciudad+' ('+ data.resultado[index].estado+')</span> </a></div></dd>');
                 }
             });
          
